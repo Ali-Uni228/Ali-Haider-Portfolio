@@ -185,3 +185,101 @@
     gap: var(--space-sm);
   }
 }
+/* ---- Portrait (final v2) ---- */
+@media (min-width: 861px) {
+
+  .hero__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(3rem, 6vw, 5rem);
+
+    max-width: min(1400px, 88vw);   /* was: max-width: 1200px; */
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero__text {
+    flex: 1;
+    min-width: 0;
+    max-width: 640px;
+
+  }
+
+}
+
+.hero__portrait {
+  flex-shrink: 0;
+  transform: translate(180px, -20px);   /* <-- your manual control */
+}
+
+.hero__portrait img {
+  display: block;
+
+  height: clamp(320px, 55vh, 480px);   /* was: width: clamp(260px, 32vw, 460px); */
+  width: auto;                          /* was: height: auto; */
+
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: 70% 22%;
+
+  border-radius: 14px;
+  border: 1px solid var(--line);
+
+  background: var(--surface);
+
+  box-shadow:
+    0 0 80px rgba(255, 255, 255, 0.025),
+    0 16px 40px -18px rgba(0, 0, 0, 0.55);
+
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
+}
+
+.hero__portrait img:hover {
+  transform: scale(1.02);
+  border-color: var(--ink-faint);
+  box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 860px) {
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__portrait {
+    margin-top: var(--space-lg);
+    align-self: flex-start;
+  }
+
+  .hero__portrait img {
+    width: clamp(260px, 26vw, 360px);
+  }
+}
+
+/* ==========================================================================
+   MOBILE
+========================================================================== */
+
+@media (max-width: 860px) {
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xl);
+  }
+
+  .hero__portrait {
+    align-self: flex-start;
+  }
+
+  .hero__portrait img {
+    width: clamp(240px, 70vw, 320px);
+  }
+
+}
