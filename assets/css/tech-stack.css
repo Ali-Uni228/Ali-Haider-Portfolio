@@ -1,0 +1,45 @@
+/* ==========================================================================
+   TECH STACK
+   No scroll entrance theatrics here on purpose — About and Tech Stack are
+   the two quiet chapters. The only motion is a hover response: pointing at
+   a tool shows which flagship project it was actually used in, via color.
+   ========================================================================== */
+.stack { padding: var(--space-2xl) 0; border-top: 1px solid var(--line); }
+.stack__header { margin-bottom: var(--space-xl); }
+
+.stack__groups {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg) var(--space-md);
+}
+@media (max-width: 900px) { .stack__groups { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .stack__groups { grid-template-columns: 1fr; } }
+
+.stack__group-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-sm);
+}
+.stack__items { display: flex; flex-direction: column; gap: 0.55em; }
+.stack__item {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+  width: fit-content;
+  transition: color 200ms var(--ease-out);
+}
+.stack__item[data-used-in="jarvis"]:hover      { color: var(--jarvis); }
+.stack__item[data-used-in="deathleade"]:hover  { color: var(--deathleade); }
+.stack__item[data-used-in="both"]:hover        { color: var(--ink); }
+
+.stack__legend {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}

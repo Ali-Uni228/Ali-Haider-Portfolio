@@ -1,0 +1,184 @@
+/* ==========================================================================
+   HERO
+   Job: curiosity, not impressing yet (JARVIS's section does that). Quiet by
+   design — one status line, one statement, two named teasers, one light
+   interaction that plants the site's single recurring idea: look closer
+   and a layer of technical detail becomes visible that isn't there
+   otherwise. Hero only teases this (a grid, nothing to inspect yet);
+   JARVIS and DeathLeade pay it off with real annotated detail.
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--space-2xl) + 2rem) clamp(1.5rem, 5vw, 5rem) var(--space-2xl);
+  overflow: hidden;
+}
+
+/* The cursor-revealed layer. At rest (no JS, reduced-motion, or touch) it
+   sits centered and static — still deliberate, never broken-looking. */
+.hero__trace {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle 280px at var(--mx, 60%) var(--my, 35%), black 0%, transparent 70%);
+  mask-image: radial-gradient(circle 280px at var(--mx, 60%) var(--my, 35%), black 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__status {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--jarvis);
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__status-dot {
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes dot-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3.2rem, 9vw, 7.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: var(--space-xs);
+}
+
+.hero__sub {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-md);
+}
+
+.hero__statement {
+  max-width: 620px;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: var(--ink-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__teasers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__teaser-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  padding-bottom: 2px;
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: left bottom;
+  transition: background-size var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out);
+}
+
+.hero__teaser-link:hover {
+  color: var(--ink);
+  background-size: 100% 1px;
+}
+
+.hero__teaser-link .accent {
+  color: var(--ink);
+}
+
+.hero__teaser-link:nth-child(1) .accent {
+  color: var(--jarvis);
+}
+
+.hero__teaser-link:nth-child(2) .accent {
+  color: var(--deathleade);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.hero__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 0.95rem;
+  color: var(--ink);
+  padding-bottom: 2px;
+  background-image: linear-gradient(var(--ink), var(--ink));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: left bottom;
+  transition: background-size var(--dur-med) var(--ease-out), gap var(--dur-med) var(--ease-out);
+}
+
+.hero__action:hover {
+  background-size: 100% 1px;
+  gap: 0.65em;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: clamp(1.5rem, 5vw, 5rem);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .hero__scroll {
+    display: none;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+}

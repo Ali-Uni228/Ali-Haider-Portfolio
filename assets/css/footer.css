@@ -1,0 +1,17 @@
+/* ==========================================================================
+   FOOTER
+   Minimal on purpose. The status readout reappears once more here,
+   bookending its first appearance in Hero.
+   ========================================================================== */
+.footer {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--line);
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.footer__note { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faint); }

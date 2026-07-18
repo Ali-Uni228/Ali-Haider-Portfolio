@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>document.documentElement.classList.add('js-ready');</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121110" />
+  <title>Ali Haider — Software Engineering &amp; AI Portfolio</title>
+  <meta name="description"
+    content="Ali Haider — BS Artificial Intelligence student and software engineer. Builder of JARVIS, a local AI operating system, and DeathLeade Network, a full-stack Minecraft storefront. Looking for software engineering internships." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ali Haider — Software Engineering & AI" />
+  <meta property="og:description"
+    content="Builder of JARVIS (a local AI operating system) and DeathLeade Network (a full-stack Minecraft storefront). Looking for software engineering internships." />
+  <meta property="og:image" content="assets/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ali Haider — Software Engineering & AI" />
+  <meta name="twitter:description"
+    content="Builder of JARVIS and DeathLeade Network. Looking for software engineering internships." />
+  <meta name="twitter:image" content="assets/images/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ali Haider",
+  "jobTitle": "BS Artificial Intelligence Student",
+  "description": "Software engineering and AI internship candidate. Builder of JARVIS and DeathLeade Network.",
+  "email": "mailto:punjabali.bokhari2006@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/ali-haider-air/",
+    "https://github.com/alihaider"
+  ]
+}
+</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/case-study.css">
+  <link rel="stylesheet" href="assets/css/projects-gallery.css">
+  <link rel="stylesheet" href="assets/css/tech-stack.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/education.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+
+<body>
+
+  <a class="visually-hidden" href="#main">Skip to content</a>
+
+  <!-- Shared SVG arrowhead markers for technical architecture diagrams -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <marker id="arrow-jarvis" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"></path>
+      </marker>
+      <marker id="arrow-deathleade" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"></path>
+      </marker>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#top">AH_</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#featured">Featured</a>
+        <a class="nav__link" href="#other">Projects</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link" href="#education">Education</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+      <a class="nav__resume" href="assets/resume-ali-haider.pdf" download>Resume</a>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+<section class="hero" id="top">
+  <div class="hero__trace" aria-hidden="true"></div>
+  <div class="hero__content">
+    <p class="hero__status">
+      <span class="hero__status-dot" aria-hidden="true"></span>
+      Open to Software Engineering &amp; AI Internships
+    </p>
+    <h1 class="hero__name">Ali Haider</h1>
+    <p class="hero__sub">
+      BS Artificial Intelligence Student &middot; Air University, Islamabad
+    </p>
+    <p class="hero__statement">
+      I build software because I'm curious how it works.
+      Most of my projects begin with something I don't know how to build.
+      Along the way, I learn why systems break, how they work, and what it
+      takes to build them properly.
+    </p>
+    <div class="hero__actions">
+      <a class="hero__action" href="#featured">
+        View Projects &rarr;
+      </a>
+      <a class="hero__action" href="#contact">
+        Get In Touch &rarr;
+      </a>
+    </div>
+  </div>
+  <p class="hero__scroll">Scroll</p>
+</section>
+
+    <!-- ============================== ABOUT ME ============================== -->
+<section class="about" id="about" tabindex="-1">
+  <div class="container--read">
+    <p class="eyebrow" data-reveal="fade">About Me</p>
+    <p class="about__quote" data-reveal="fade">
+      I learn software engineering by building things that are slightly beyond what I know how to build.
+    </p>
+    <div class="about__body" data-reveal="fade">
+      <p>
+        I'm a BS Artificial Intelligence undergraduate based in Islamabad, Pakistan.
+        I started learning programming because I was curious about how software actually works behind the scenes—not just how to use it. That curiosity eventually turned into building AI assistants, automation tools, desktop applications, and interactive web experiences while teaching myself software engineering along the way.
+      </p>
+      <p>
+        I enjoy difficult projects because they force me to learn. Most of my projects don't work perfectly the first time—and that's the point. Breaking things, redesigning them, and spending hours figuring out why something failed has taught me far more than simply following tutorials ever could.
+      </p>
+      <p>
+        I'm still at the beginning of my journey, which makes software engineering even more exciting. There are countless technologies I haven't explored yet and countless mistakes I haven't made yet. I'm looking for opportunities where I can learn from experienced engineers, contribute to meaningful projects, and become better every single day.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- ============================== FEATURED PROJECTS ============================== -->
+    <section class="featured" id="featured" tabindex="-1">
+      <div class="container--wide">
+        <header class="gallery__header" data-reveal="fade">
+          <p class="eyebrow">Featured Work</p>
+          <h2 class="case-study__title case-study__title--section">Flagship Projects</h2>
+        </header>
+
+        <!-- JARVIS -->
+<article class="case-study case-study--jarvis" id="jarvis" tabindex="-1">
+    <header class="case-study__header" data-reveal="fade">
+        <p class="eyebrow" style="color: var(--jarvis);">
+            Project 01
+        </p>
+        <h3 class="case-study__title">
+            JARVIS
+        </h3>
+        <p class="case-study__subtitle">
+            A local-first AI assistant built to automate real computer systems.
+        </p>
+        <p class="readout readout--live readout--jarvis">
+            <span class="readout__dot"></span>
+            Under active development
+        </p>
+    </header>
+    <!-- Screenshot -->
+    <div class="case-study__stage" data-reveal="fade">
+        <div class="switcher__tabs" role="group" aria-label="JARVIS screenshots">
+            <button type="button" class="switcher__tab is-active" data-slide="jarvis-brain">Ask About WoW</button>
+            <button type="button" class="switcher__tab" data-slide="jarvis-netsearch">Search Neural Networks</button>
+            <button type="button" class="switcher__tab" data-slide="jarvis-notepad">Open Notepad</button>
+        </div>
+        <div class="frame frame--shot" data-tilt data-scroll-progress>
+            <div class="case-study__frame-bg parallax-slow"
+                 aria-hidden="true">
+            </div>
+            <div class="switcher__slide is-active" data-slide="jarvis-brain">
+                <img src="assets/images/projects/jarvis/jarvis-brain.png"
+                     alt="JARVIS logs showing a spoken question about World of Warcraft being routed to the local LLM, which recalls memory and generates a full answer">
+                <button
+                        type="button"
+                        class="pin"
+                        style="--pin-color: var(--jarvis); top:38%; left:24%;">
+
+                    <span class="pin__callout">
+                        Router decides whether AI is even needed.
+                    </span>
+                </button>
+                <button
+                        type="button"
+                        class="pin"
+                        style="--pin-color: var(--jarvis); top:66%; left:64%;">
+                    <span class="pin__callout">
+                        Local language model handles reasoning only when required.
+                    </span>
+                </button>
+            </div>
+            <div class="switcher__slide" data-slide="jarvis-netsearch">
+                <img src="assets/images/projects/jarvis/jarvis-netsearch.png"
+                     alt="JARVIS logs showing a spoken web-search command being routed to the browser, which opens a Google search for the requested query">
+            </div>
+            <div class="switcher__slide" data-slide="jarvis-notepad">
+                <img src="assets/images/projects/jarvis/jarvis-notepad.png"
+                     alt="JARVIS logs showing a spoken command launching Notepad, matched and executed by the deterministic router in 13ms">
+            </div>
+          </div>
+        <p class="case-study__caption">
+            Deterministic routing allows simple system commands to execute almost instantly without requiring language model inference.
+        </p>
+    </div>
+    <!-- STORY -->
+    <div class="case-study__grid">
+        <div class="case-study__section"
+             data-reveal="fade">
+            <h4>
+                Why I Built It
+            </h4>
+            <p>
+                Most AI assistants try to solve every problem by sending
+                everything through a language model. Opening a browser tab
+                or launching an application shouldn't take seconds of
+                inference time.
+            </p>
+            <p>
+                JARVIS was built around a simple idea:
+                use AI only when AI is actually needed.
+            </p>
+        </div>
+        <!-- Problem -->
+        <div class="case-study__section"
+             data-reveal="fade">
+            <h4>
+                The Problem
+            </h4>
+            <p>
+                Early versions were slow, unpredictable and occasionally
+                read their own reasoning process aloud through the
+                text-to-speech pipeline.
+            </p>
+            <p>
+                That forced me to redesign how requests are routed,
+                separating simple system actions from complex reasoning
+                tasks.
+            </p>
+        </div>
+        <!-- Lessons -->
+        <div class="case-study__section"
+             data-reveal="fade">
+            <h4>
+                What It Taught Me
+            </h4>
+            <p>
+                Building JARVIS taught me that AI products are often
+                software engineering problems before they're machine
+                learning problems.
+            </p>
+            <p>
+                Architecture decisions, latency, threading and good UX
+                matter just as much as model selection.
+            </p>
+        </div>
+        <!-- Architecture -->
+        <div class="case-study__section"
+             data-reveal="fade">
+            <h4>
+                How Requests Are Routed
+            </h4>
+            <div class="case-study__diagram">
+                <svg
+                     class="arch-diagram"
+                     viewBox="0 0 640 260"
+                     data-scroll-progress
+                     role="img"
+                     aria-label="JARVIS Architecture Diagram">
+                    <rect class="arch-box"
+                          x="16"
+                          y="104"
+                          width="120"
+                          height="48"
+                          rx="4">
+                    </rect>
+                    <text x="76"
+                          y="132"
+                          font-size="11"
+                          text-anchor="middle">
+                        Voice / Text Input
+                    </text>
+                    <path class="arch-path"
+                          pathLength="1"
+                          d="M136,128 L182,128">
+                    </path>
+                    <rect class="arch-box arch-box--accent"
+                          x="184"
+                          y="94"
+                          width="140"
+                          height="68"
+                          rx="4"
+                          style="stroke: var(--jarvis);">
+                    </rect>
+                    <text x="254"
+                          y="122"
+                          font-size="11"
+                          text-anchor="middle"
+                          class="arch-label--accent">
+                        Deterministic Router
+                    </text>
+                    <text x="254"
+                          y="138"
+                          font-size="11"
+                          text-anchor="middle"
+                          class="arch-label--accent">
+                        SQLite Lookup
+                    </text>
+                    <path class="arch-path"
+                          pathLength="1"
+                          d="M324,112 L392,46">
+                    </path>
+                    <path class="arch-path"
+                          pathLength="1"
+                          d="M324,128 L392,128">
+                    </path>
+
+                    <path class="arch-path"
+                          pathLength="1"
+                          d="M324,144 L392,210">
+                    </path>
+                    <rect class="arch-box"
+                          x="394"
+                          y="16"
+                          width="220"
+                          height="48"
+                          rx="4">
+                    </rect>
+                    <text x="504"
+                          y="44"
+                          font-size="11"
+                          text-anchor="middle">
+                        Win32 API
+                    </text>
+                    <rect class="arch-box"
+                          x="394"
+                          y="104"
+                          width="220"
+                          height="48"
+                          rx="4">
+                    </rect>
+                    <text x="504"
+                          y="132"
+                          font-size="11"
+                          text-anchor="middle">
+                        Playwright Automation
+                    </text>
+                    <rect class="arch-box"
+                          x="394"
+                          y="186"
+                          width="220"
+                          height="48"
+                          rx="4">
+                    </rect>
+                    <text x="504"
+                          y="214"
+                          font-size="11"
+                          text-anchor="middle">
+                        Ollama + Qwen2.5 7B
+                    </text>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Meta -->
+    <div class="case-study__meta-row"
+         data-reveal="fade">
+        <p class="stack-list">
+            <span>Python</span>
+            <span>PyQt6</span>
+            <span>Whisper</span>
+            <span>SQLite</span>
+            <span>Playwright</span>
+            <span>Ollama</span>
+            <span>Piper TTS</span>
+            <span>Win32 API</span>
+        </p>
+        <p class="case-study__status-line">
+            <strong>Currently Building:</strong>
+            Improving browser automation, multi-step task execution, and local AI capabilities.
+        </p>
+    </div>
+</article>
+     <!--Deathlead Website-->
+ <article class="case-study case-study--deathleade" id="deathleade" tabindex="-1">
+  <header class="case-study__header" data-reveal="fade">
+    <p class="eyebrow" style="color: var(--deathleade);">Project 02</p>
+    <h3 class="case-study__title">
+      DeathLeade Network
+    </h3>
+    <p class="case-study__subtitle">
+      Automated Game Server Commerce Platform
+    </p>
+    <p class="readout readout--live readout--deathleade">
+      <span class="readout__dot"></span>
+      Frontend deployed · Backend currently offline
+    </p>
+    <!-- TODO: replace # with the real DeathLeade URL -->
+    <a class="case-study__links" href="#" target="_blank" rel="noopener">Visit Website →</a>
+  </header>
+  <!-- Screenshot Section -->
+  <div class="case-study__stage" data-reveal="fade">
+    <div class="switcher__tabs" role="group" aria-label="DeathLeade Network screenshots">
+      <button type="button" class="switcher__tab is-active" data-slide="deathleade-home">Homepage</button>
+      <button type="button" class="switcher__tab" data-slide="deathleade-store">Store</button>
+      <button type="button" class="switcher__tab" data-slide="deathleade-checkout">Checkout</button>
+      <button type="button" class="switcher__tab" data-slide="deathleade-ordertracking">Order Tracking</button>
+    </div>
+    <div class="frame frame--shot"
+         data-tilt
+         data-scroll-progress>
+      <div class="case-study__frame-bg parallax-slow"
+           aria-hidden="true">
+      </div>
+      <div class="switcher__slide is-active" data-slide="deathleade-home">
+        <img src="assets/images/projects/deathleade/deathleade-home.png"
+             alt="DeathLeade Network landing page and branding">
+      </div>
+      <div class="switcher__slide" data-slide="deathleade-store">
+        <img src="assets/images/projects/deathleade/deathleade-store.png"
+             alt="DeathLeade Network store page listing in-game ranks and packages">
+      </div>
+      <div class="switcher__slide" data-slide="deathleade-checkout">
+        <img src="assets/images/projects/deathleade/deathleade-checkout.png"
+             alt="DeathLeade Network checkout flow with transaction verification">
+        <button type="button"
+                class="pin"
+                style="--pin-color: var(--deathleade); top:35%; left:25%;"
+                aria-label="Orders are automatically verified and processed by the backend">
+          <span class="pin__callout">
+            Orders are processed automatically.
+          </span>
+        </button>
+      </div>
+      <div class="switcher__slide" data-slide="deathleade-ordertracking">
+        <img src="assets/images/projects/deathleade/deathleade-ordertracking.png"
+             alt="DeathLeade Network order tracking and customer status view">
+        <button type="button"
+                class="pin"
+                style="--pin-color: var(--deathleade); top:70%; left:65%;"
+                aria-label="Purchased ranks are delivered directly to the Minecraft server">
+          <span class="pin__callout">
+            Packages are delivered in seconds via RCON.
+          </span>
+        </button>
+      </div>
+    </div>
+    <p class="case-study__caption">
+    The platform was designed to automate package delivery through TCP RCON once payment verification is completed.
+    </p>
+  </div>
+  <!-- Main Content -->
+  <div class="case-study__grid">
+    <!-- WHAT I BUILT -->
+    <div class="case-study__section" data-reveal="fade">
+      <h4>What I Built</h4>
+      <p>
+        DeathLeade Network is a Minecraft gaming network storefront that was designed
+        to automate the complete purchasing experience. Players can purchase 
+        in-game ranks and packages through the website and receive their rewards automatically 
+        once the backend services are deployed.
+      </p>
+      <p>
+        The backend was built to validate purchases, store order
+        data, communicate with the Minecraft server, and automate 
+        package delivery through TCP RCON.
+      </p>
+    </div>
+    <!-- CHALLENGE -->
+    <div class="case-study__section" data-reveal="fade">
+      <h4>The Challenge</h4>
+      <p>
+        Building a game commerce platform is more than building a website.
+        Payment processing, database consistency, real-time server
+        communication, and automated delivery systems must work together
+        reliably for every order.
+      </p>
+      <p>
+        Hosting limitations prevented direct TCP communication with the
+        game server, forcing me to redesign the backend architecture and
+        separate frontend and server-side responsibilities.
+      </p>
+    </div>
+    <!-- WHAT I LEARNED -->
+    <div class="case-study__section" data-reveal="fade">
+      <h4>What I Learned</h4>
+      <p>
+        This project introduced me to production-level problems that most
+        student projects never encounter. I learned how hosting providers
+        affect application architecture, how backend services should be
+        designed independently from the frontend, and how systems behave
+        when real users are interacting with them simultaneously.
+      </p>
+      <p>
+        I also gained hands-on experience working with TCP protocols,
+        deployment strategies, database optimization, and building
+        reliable automation pipelines for real-world use cases.
+      </p>
+    </div>
+    <!-- ARCHITECTURE -->
+    <div class="case-study__section" data-reveal="fade">
+      <h4>Architecture Overview</h4>
+      <div class="case-study__diagram">
+        <svg class="arch-diagram"
+             viewBox="0 0 640 260"
+             data-scroll-progress
+             role="img"
+             aria-label="DeathLeade Network Architecture Diagram">
+          <!-- Customer -->
+          <rect class="arch-box"
+                x="16"
+                y="104"
+                width="120"
+                height="48"
+                rx="4"></rect>
+          <text x="76"
+                y="132"
+                font-size="11"
+                text-anchor="middle">
+            Customer Browser
+          </text>
+          <!-- Arrow -->
+          <path class="arch-path"
+                pathLength="1"
+                d="M136,128 L182,128">
+          </path>
+          <!-- Frontend -->
+          <rect class="arch-box"
+                x="184"
+                y="104"
+                width="120"
+                height="48"
+                rx="4">
+        </rect>
+          <text x="244"
+                y="132"
+                font-size="11"
+                text-anchor="middle">
+            Frontend
+          </text>
+          <!-- Arrow -->
+          <path class="arch-path"
+                pathLength="1"
+                d="M304,128 L352,128">
+          </path>
+          <!-- API -->
+          <rect class="arch-box arch-box--accent"
+                x="354"
+                y="104"
+                width="140"
+                height="48"
+                rx="4"
+                style="stroke: var(--deathleade);">
+          </rect>
+          <text x="424"
+                y="132"
+                font-size="11"
+                text-anchor="middle"
+                class="arch-label--accent">
+            Express API
+          </text>
+          <!-- Connections -->
+          <path class="arch-path"
+                pathLength="1"
+                d="M494,112 L560,46">
+          </path>
+          <path class="arch-path"
+                pathLength="1"
+                d="M494,128 L560,128">
+          </path>
+          <path class="arch-path"
+                pathLength="1"
+                d="M494,144 L560,210">
+          </path>
+          <!-- MongoDB -->
+          <rect class="arch-box"
+                x="562"
+                y="16"
+                width="70"
+                height="48"
+                rx="4">
+          </rect>
+          <text x="597"
+                y="36"
+                font-size="10"
+                text-anchor="middle">
+            MongoDB
+          </text>
+          <text x="597"
+                y="50"
+                font-size="10"
+                text-anchor="middle">
+            Database
+          </text>
+          <!-- Discord -->
+          <rect class="arch-box"
+                x="562"
+                y="104"
+                width="70"
+                height="48"
+                rx="4">
+          </rect>
+          <text x="597"
+                y="124"
+                font-size="10"
+                text-anchor="middle">
+            Discord
+          </text>
+          <text x="597"
+                y="138"
+                font-size="10"
+                text-anchor="middle">
+            Logs
+          </text>
+          <!-- RCON -->
+          <rect class="arch-box"
+                x="562"
+                y="186"
+                width="70"
+                height="48"
+                rx="4">
+          </rect>
+          <text x="597"
+                y="206"
+                font-size="10"
+                text-anchor="middle">
+            TCP RCON
+        </text>
+          <text x="597"
+                y="220"
+                font-size="10"
+                text-anchor="middle">
+            Delivery
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- STACK & STATUS -->
+  <div class="case-study__meta-row" data-reveal="fade">
+    <p class="stack-list">
+      <span>Node.js</span>
+      <span>Express</span>
+      <span>MongoDB</span>
+      <span>TCP RCON</span>
+      <span>Railway</span>
+      <span>REST APIs</span>
+      <span>Discord Webhooks</span>
+    </p>
+    <p class="case-study__status-line">
+      <strong>Status:</strong>
+      Frontend deployed. Backend deployment is currently paused due to hosting costs.
+    </p>
+  </div>
+</article>
+      </div>
+    </section>
+
+     <!-- Selected Projects-->
+    <section class="gallery" id="other" tabindex="-1">
+  <div class="container--wide">
+    <header class="gallery__header" data-reveal="fade">
+      <p class="eyebrow">
+        Selected Projects
+      </p>
+      <h2 class="case-study__title case-study__title--section">
+        Built While Learning
+      </h2>
+      <p class="gallery__intro">
+        Not every project needs to change the world. Some taught me how
+        graphics work, some taught me how APIs behave, and some simply
+        taught me why debugging is 90% of software engineering.
+      </p>
+    </header>
+    <div class="gallery__list">
+      <!-- NOVA -->
+<article class="gallery__row" data-reveal="fade">
+  <span class="gallery__row-number">03</span>
+  <div class="gallery__row-body">
+    <h3 class="gallery__row-title">
+      NOVA AI Assistant
+    </h3>
+    <p class="gallery__row-text">
+      My first attempt at building an AI assistant in Python. NOVA is a
+      terminal-based assistant powered by a locally running language model.
+      Building it taught me how AI assistants process prompts, route commands,
+      and where simple architectures begin to break down. Many of the lessons
+      learned while building NOVA later influenced the design decisions behind
+      JARVIS.
+    </p>
+    <p class="gallery__row-stack">
+      Python · Ollama · Local LLMs · Prompt Processing
+    </p>
+    <div class="case-study__stage">
+      <div class="frame frame--shot" data-tilt>
+        <img src="assets/images/projects/nova/nova-terminal.png"
+             alt="NOVA running in a terminal, showing command-based interaction with a locally running language model">
+      </div>
+    </div>
+  </div>
+</article>
+      <!-- SOLAR SYSTEM -->
+      <article class="gallery__row gallery__row--solar" data-reveal="fade">
+        <span class="gallery__row-number">04</span>
+        <div class="gallery__row-body">
+          <h3 class="gallery__row-title">
+            Solar System Explorer
+          </h3>
+          <p class="gallery__row-text">
+           An educational web application that explores our solar system through interactive 3D visualizations
+            and scientific content. The project combines real-world space exploration topics with browser-based 
+            rendering, allowing users to explore planets, compare celestial bodies, browse historical missions, 
+            and discover astronomical facts through an immersive interface.
+          </p>
+          </p>
+          <p class="gallery__row-stack">
+            JavaScript · Three.js · WebGL · 3D Rendering
+          </p>
+          <a class="gallery__row-link"
+             href="https://solar-system-explorer-rho.vercel.app/"
+             target="_blank"
+             rel="noopener">
+            Visit Website →
+          </a>
+          <div class="case-study__stage">
+            <div class="switcher__tabs" role="group" aria-label="Solar System Explorer screenshots">
+              <button type="button" class="switcher__tab is-active" data-slide="solar-home">Home</button>
+              <button type="button" class="switcher__tab" data-slide="solar-about">Planets</button>
+              <button type="button" class="switcher__tab" data-slide="solar-planets">Solar System</button>
+              <button type="button" class="switcher__tab" data-slide="solar-discoveries">Discoveries</button>
+              <button type="button" class="switcher__tab" data-slide="solar-missions">Missions</button>
+              <button type="button" class="switcher__tab" data-slide="solar-gallery">Gallery</button>
+              <button type="button" class="switcher__tab" data-slide="solar-compare">Compare</button>
+            </div>
+            <div class="frame frame--shot" data-tilt>
+              <div class="switcher__slide is-active" data-slide="solar-home">
+                <img src="assets/images/projects/solar/solar-home.png"
+                     alt="Solar System Explorer landing page showing featured missions and neighborhood overview">
+              </div>
+              <div class="switcher__slide" data-slide="solar-about">
+                <img src="assets/images/projects/solar/solar-about.png"
+                     alt="Solar System Explorer planet detail overlay showing Saturn's stats and key missions">
+              </div>
+              <div class="switcher__slide" data-slide="solar-planets">
+                <img src="assets/images/projects/solar/solar-planets.png"
+                     alt="Solar System Explorer planetary overview page listing the Sun and inner planets">
+              </div>
+              <div class="switcher__slide" data-slide="solar-discoveries">
+                <img src="assets/images/projects/solar/solar-discoveries.png"
+                     alt="Solar System Explorer discoveries page listing scientific findings filterable by category">
+              </div>
+              <div class="switcher__slide" data-slide="solar-missions">
+                <img src="assets/images/projects/solar/solar-missions.png"
+                     alt="Solar System Explorer missions page listing ongoing and historical space missions">
+              </div>
+              <div class="switcher__slide" data-slide="solar-gallery">
+                <img src="assets/images/projects/solar/solar-gallery.png"
+                     alt="Solar System Explorer cosmic gallery showing a filterable grid of space photography">
+              </div>
+              <div class="switcher__slide" data-slide="solar-compare">
+                <img src="assets/images/projects/solar/solar-compare.png"
+                     alt="Solar System Explorer planetary compare tool showing Earth and Mars side by side">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- TETRIUS -->
+
+      <article class="gallery__row" data-reveal="fade">
+        <span class="gallery__row-number">05</span>
+        <div class="gallery__row-body">
+          <h3 class="gallery__row-title">
+            Tetrius
+          </h3>
+          <p class="gallery__row-text">
+            A Tetris clone built from scratch in C++ using SFML. The project taught me how game loops,
+            collision detection, matrix rotations, difficulty scaling, and object-oriented programming 
+            come together to create an interactive game experience without relying on third-party game engines.
+          </p>
+          <p class="gallery__row-stack">
+            C++ · SFML · Game Programming · OOP
+          </p>
+          <div class="case-study__stage">
+            <div class="switcher__tabs" role="group" aria-label="Tetrius screenshots">
+              <button type="button" class="switcher__tab is-active" data-slide="tetrius-menu">Menu</button>
+              <button type="button" class="switcher__tab" data-slide="tetrius-levels">Levels</button>
+              <button type="button" class="switcher__tab" data-slide="tetrius-gameplay">Gameplay</button>
+            </div>
+            <div class="frame frame--shot" data-tilt>
+              <div class="switcher__slide is-active" data-slide="tetrius-menu">
+                <img src="assets/images/projects/tetrius/tetrius-menu.png"
+                     alt="Tetrius main menu screen">
+              </div>
+              <div class="switcher__slide" data-slide="tetrius-levels">
+                <img src="assets/images/projects/tetrius/tetrius-levels.png"
+                     alt="Tetrius level select screen">
+              </div>
+              <div class="switcher__slide" data-slide="tetrius-gameplay">
+                <img src="assets/images/projects/tetrius/tetrius-gameplay.png"
+                     alt="Tetrius gameplay showing falling pieces and the active board">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- PARKING MANAGEMENT -->
+      <article class="gallery__row" data-reveal="fade">
+        <span class="gallery__row-number">06</span>
+        <div class="gallery__row-body">
+          <h3 class="gallery__row-title">
+            Smart Parking Management System
+          </h3>
+          <p class="gallery__row-text">
+            A console-based parking management system built in C++. 
+            It allows users to allocate parking spaces, search vehicle records, 
+            and manage parking slot availability while using file handling techniques 
+            to store and retrieve parking data.
+          </p>
+          <p class="gallery__row-stack">
+            C++ · File Handling · Data Structures · OOP
+          </p>
+          <div class="case-study__stage">
+            <div class="switcher__tabs" role="group" aria-label="Smart Parking Management System screenshots">
+              <button type="button" class="switcher__tab is-active" data-slide="parking-allocation">Parking Allocation</button>
+              <button type="button" class="switcher__tab" data-slide="parking-search">Vehicle Search</button>
+              <button type="button" class="switcher__tab" data-slide="parking-slots">Parking Slots</button>
+            </div>
+            <div class="frame frame--shot" data-tilt>
+              <div class="switcher__slide is-active" data-slide="parking-allocation">
+                <img src="assets/images/projects/parking/parking-allocation.png"
+                     alt="Smart Parking Management System console output for allocating a parking slot">
+              </div>
+              <div class="switcher__slide" data-slide="parking-search">
+                <img src="assets/images/projects/parking/parking-search.png"
+                     alt="Smart Parking Management System console output for searching a vehicle record">
+              </div>
+              <div class="switcher__slide" data-slide="parking-slots">
+                <img src="assets/images/projects/parking/parking-slots.png"
+                     alt="Smart Parking Management System console output listing available parking slots">
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>  
+
+<!-- ============================== TECHNOLOGIES ============================== -->
+
+<section class="stack" id="stack" tabindex="-1">
+
+  <div class="container--wide">
+
+    <header class="gallery__header" data-reveal="fade">
+      <p class="eyebrow">Technologies</p>
+      <h2 class="case-study__title case-study__title--section">
+        Tools I Enjoy Building With
+      </h2>
+    </header>
+
+    <div class="stack__groups" data-reveal="fade">
+
+      <!-- Languages -->
+
+      <div class="stack__group">
+        <p class="stack__group-title">Languages</p>
+        <div class="stack__items">
+          <span class="stack__item">Python</span>
+          <span class="stack__item">C++</span>
+          <span class="stack__item">JavaScript</span>
+          <span class="stack__item">HTML / CSS</span>
+        </div>
+      </div>
+
+      <!-- AI & Automation -->
+
+      <div class="stack__group">
+        <p class="stack__group-title">AI & Automation</p>
+        <div class="stack__items">
+          <span class="stack__item">Ollama</span>
+          <span class="stack__item">Whisper</span>
+          <span class="stack__item">Playwright</span>
+          <span class="stack__item">Piper TTS</span>
+          <span class="stack__item">Win32 API</span>
+        </div>
+      </div>
+
+      <!-- Backend -->
+
+      <div class="stack__group">
+        <p class="stack__group-title">Backend</p>
+        <div class="stack__items">
+          <span class="stack__item">Node.js</span>
+          <span class="stack__item">Express</span>
+          <span class="stack__item">MongoDB</span>
+          <span class="stack__item">SQLite</span>
+          <span class="stack__item">TCP RCON</span>
+        </div>
+      </div>
+
+      <!-- Frontend & Graphics -->
+
+      <div class="stack__group">
+        <p class="stack__group-title">Frontend & Graphics</p>
+        <div class="stack__items">
+          <span class="stack__item">Three.js</span>
+          <span class="stack__item">WebGL</span>
+          <span class="stack__item">SFML</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ============================== CURRENT FOCUS ============================== -->
+
+<section class="focus" id="focus" tabindex="-1">
+    <div class="container--read">
+        <p class="eyebrow" data-reveal="fade">
+            Current Focus
+        </p>
+        <div class="about__body" data-reveal="fade">
+            <p>
+                <strong>01.</strong> Building JARVIS as my long-term AI assistant project.
+            </p>
+            <p>
+                <strong>02.</strong> Learning backend development and software architecture.
+            </p>
+            <p>
+                <strong>03.</strong> Looking for my first software engineering internship.
+            </p>
+            <p>
+                <strong>04.</strong> Getting better at debugging systems instead of memorizing solutions.
+            </p>
+          <div style="margin-top:4rem;">
+              <hr style="border:none; border-top:1px solid var(--line);">
+          </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ============================== EDUCATION ============================== -->
+
+<section class="education" id="education" tabindex="-1">
+  <div class="container--read">
+    <p class="eyebrow">Education</p>
+    <div class="education__row">
+      <h3 class="education__degree">
+        BS Artificial Intelligence
+      </h3>
+      <p class="education__institution">
+        Air University • Islamabad, Pakistan
+      </p>
+    </div>
+    <p class="education__semester">
+      Second Semester Undergraduate Student.
+    </p>
+    <div class="education__focus">
+      <p class="education__label">
+        Areas I'm currently exploring:
+      </p>
+      <ul class="education__topics">
+        <li>Artificial Intelligence Systems</li>
+        <li>Backend Development</li>
+        <li>Machine Learning</li>
+        <li>Software Automation</li>
+      </ul>
+    </div>
+    <p class="education__note">
+      Most of my learning happens outside the classroom through building projects, breaking them repeatedly, and figuring out why they failed.
+    </p>
+
+  </div>
+</section>
+<!-- ============================== CONTACT ============================== -->
+
+<section class="contact" id="contact" tabindex="-1">
+    <div class="container--wide">
+        <div class="contact__intro" data-reveal="fade">
+    <p class="eyebrow">
+        Contact
+    </p>
+    <h2 class="contact__title">
+        Let's Build Something
+    </h2>
+    <p class="contact__desc">
+        I'm currently looking for internship opportunities where I can
+        learn from experienced engineers and contribute to real-world
+        software projects.
+    </p>
+    <p class="contact__desc">
+        If something I've built caught your attention or you'd simply
+        like to talk about software, feel free to reach out.
+    </p>
+</div>
+        <div class="contact__links" data-reveal="fade">
+            <!-- EMAIL -->
+            <div class="contact__link-row"
+                 id="copy-email-btn"
+                 data-magnetic
+                 data-magnetic-radius="90"
+                 role="button"
+                 tabindex="0">
+                <span class="contact__link-label">
+                    Email
+                </span>
+                <span class="contact__link-value contact__link-value--email">
+                    <span id="email-text">
+                        punjabali.bokhari2006@gmail.com
+                    </span>
+                    <span id="copy-status">
+                        Click to copy
+                    </span>
+                </span>
+              </div>
+            <!-- LINKEDIN -->
+            <a class="contact__link-row"
+               href="https://www.linkedin.com/in/ali-haider-air/"
+               target="_blank"
+               rel="noopener noreferrer">
+                <span class="contact__link-label">
+                    LinkedIn
+                </span>
+                <span class="contact__link-value">
+                    linkedin.com/in/ali-haider-air
+                </span>
+
+            </a>
+            <!-- GITHUB -->
+            <a class="contact__link-row"
+               href="https://github.com/Ali-Uni228"
+               target="_blank"
+               rel="noopener noreferrer">
+                <span class="contact__link-label">
+                    GitHub
+                </span>
+                <span class="contact__link-value">
+                   github.com/Ali-Uni228
+                </span>
+            </a>
+
+            <!-- RESUME -->
+            <a class="contact__link-row"
+               href="assets/resume-ali-haider.pdf"
+               download>
+                <span class="contact__link-label">
+                    Resume
+                </span>
+                <span class="contact__link-value">
+                    View Resume (PDF)
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container--wide footer__inner">
+      <p class="readout readout--live"><span class="readout__dot" style="background: var(--deathleade);"></span>Open to
+        Software Engineering &amp; AI internships</p>
+      <p class="footer__note">&copy; 2026 Ali Haider &middot; Handcrafted with vanilla HTML, CSS, &amp; JS</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/reveal.js"></script>
+  <script src="assets/js/interactions.js"></script>
+  <script src="assets/js/nav.js"></script>
+  <script src="assets/js/hero.js"></script>
+
+  <script>
+    // Simple interactive email copier
+    (function () {
+      var btn = document.getElementById('copy-email-btn');
+      var statusText = document.getElementById('copy-status');
+      var email = document.getElementById('email-text').textContent;
+
+      if (btn && statusText) {
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(email).then(function () {
+            statusText.textContent = 'Copied!';
+            statusText.style.color = 'var(--deathleade)';
+            statusText.style.borderColor = 'var(--deathleade)';
+            setTimeout(function () {
+              statusText.textContent = 'Click to copy';
+              statusText.style.color = '';
+              statusText.style.borderColor = '';
+            }, 2000);
+          }).catch(function () {
+            statusText.textContent = 'Failed to copy';
+            statusText.style.color = 'var(--jarvis)';
+          });
+        });
+        // Support keyboard activation
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

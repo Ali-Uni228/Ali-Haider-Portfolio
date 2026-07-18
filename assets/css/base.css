@@ -1,0 +1,420 @@
+/* ==========================================================================
+   RESET & ESSENTIALS
+   Everything in this file is load-bearing for the page that exists today —
+   nothing here is scaffolding for a future section.
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+}
+
+.container--read {
+  max-width: var(--container-read);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- Frame — the honest screenshot/placeholder slot ----
+   Real, in use now (Hero links to it conceptually; JARVIS/DeathLeade will
+   use it directly). Swapping a placeholder for a real <img> later needs
+   no CSS change. */
+.frame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.frame--placeholder {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(135deg, var(--surface-raised) 0 2px, var(--surface) 2px 18px);
+}
+
+.frame--placeholder__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+  padding: 0.6em 1em;
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  /* Screenshots are desktop captures, not photos — cropping loses real
+     interface content. Contain + a dark letterbox reads as intentional. */
+  object-fit: contain;
+}
+
+/* ---- Frame — real screenshot variant (JARVIS/DeathLeade stage, gallery
+   previews, Solar mini case study). Wider ratio than --placeholder since
+   these are desktop screenshots, not renders — minimizes letterbox. ---- */
+.frame--shot {
+  aspect-ratio: 2 / 1;
+  background: var(--canvas);
+}
+
+/* ---- Screenshot switcher — real <img>s stacked and crossfaded ----
+   Used inside .frame--shot both on the JARVIS/DeathLeade stage and inside
+   gallery preview panels. One set of rules, three call sites. */
+.switcher__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: var(--canvas);
+  transform: translateY(12px);
+  transition: opacity var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
+  pointer-events: none;
+}
+
+.switcher__slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switcher__slide {
+    transition: none;
+  }
+}
+/* JARVIS screenshot transition — sophisticated simplicity, functional motion */
+.case-study--jarvis .switcher__slide {
+  transform: translateY(40px);
+  filter: blur(15px);
+  transition: opacity 320ms var(--ease-out),
+              transform 320ms var(--ease-out),
+              filter 320ms var(--ease-out);
+}
+
+.case-study--jarvis .switcher__slide.is-active {
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ---- Switcher tabs — plain, literal labels naming what the screenshot
+   shows. Bracket styling is decorative (CSS content), not part of the
+   accessible name. ---- */
+.switcher__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+
+.switcher__tab {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  padding: 0.5em 0.9em;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+
+.switcher__tab::before {
+  content: '[ ';
+}
+
+.switcher__tab::after {
+  content: ' ]';
+}
+
+.switcher__tab.is-active,
+.switcher__tab:hover,
+.switcher__tab:focus-visible {
+  color: var(--accent, var(--ink));
+  border-color: var(--accent, var(--ink-faint));
+}
+
+/* ==========================================================================
+   SHARED COMPONENTS
+   Everything below is used in at least two sections — that's the bar for
+   it living here instead of inside one section's own file.
+   ========================================================================== */
+
+/* ---- Readout / status dot — Hero, JARVIS, DeathLeade, Contact, Footer ---- */
+.readout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.readout__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.readout--jarvis .readout__dot {
+  background: var(--jarvis);
+}
+
+.readout--deathleade .readout__dot {
+  background: var(--deathleade);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .readout--live .readout__dot {
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes dot-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ---- Section eyebrow — case studies, gallery, stack, focus ---- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-md);
+}
+
+/* ---- Plain stack list — no bordered chips anywhere on the site ---- */
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.6em;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.stack-list span:not(:last-child)::after {
+  content: '·';
+  margin-left: 0.6em;
+  color: var(--ink-faint);
+}
+
+/* ---- Reveal-on-scroll — used by every section from here down ---- */
+html.js-ready [data-reveal] {
+  opacity: 0;
+}
+
+html.js-ready [data-reveal="fade"] {
+  transform: translateY(22px);
+}
+
+html.js-ready [data-reveal="mask"] {
+  clip-path: inset(0 0 100% 0);
+}
+
+[data-reveal] {
+  transition: opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out),
+    clip-path var(--dur-cinematic) var(--ease-cinematic);
+}
+
+html.js-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ---- Parallax — JARVIS/DeathLeade frame backgrounds ---- */
+.parallax-slow {
+  transform: translateY(calc((var(--progress, 0.5) - 0.5) * -50px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-slow {
+    transform: none !important;
+  }
+}
+
+/* ---- Tilt + reflection — JARVIS/DeathLeade Frames only ---- */
+[data-tilt] {
+  --rx: 0;
+  --ry: 0;
+  --lx: 50%;
+  --ly: 50%;
+  transform: perspective(900px) rotateX(calc(var(--rx) * var(--tilt-max))) rotateY(calc(var(--ry) * var(--tilt-max)));
+  transition: transform 400ms var(--ease-out);
+}
+
+[data-tilt]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at var(--lx) var(--ly), rgba(255, 255, 255, 0.10), transparent 45%);
+  transition: opacity 300ms var(--ease-out);
+}
+
+[data-tilt]:hover::after,
+[data-tilt]:focus-within::after {
+  opacity: 1;
+}
+
+@media (pointer: coarse) {
+  [data-tilt] {
+    transform: none !important;
+  }
+
+  [data-tilt]::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tilt] {
+    transform: none !important;
+  }
+}
+
+/* ---- Magnetic — Contact links only ---- */
+[data-magnetic] {
+  --mx: 0px;
+  --my: 0px;
+  transform: translate(var(--mx), var(--my));
+  transition: transform 500ms var(--ease-spring);
+}
+
+@media (pointer: coarse) {
+  [data-magnetic] {
+    transform: none !important;
+  }
+}
+
+/* ---- Inspect pins — the signature interaction, JARVIS/DeathLeade only ----
+   Real <button>s: screen readers get the full annotation from aria-label
+   immediately, with no interaction required. The visible callout is a
+   bonus for sighted/pointer users who click or focus the pin. */
+.pin {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pin-color, var(--jarvis));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pin::before {
+    animation: dot-pulse 2.2s ease-in-out infinite;
+  }
+}
+
+.pin__callout {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: max-content;
+  max-width: 240px;
+  background: var(--canvas);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.6em 0.8em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+
+.pin.is-active .pin__callout,
+.pin:focus-visible .pin__callout {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .readout--live .readout__dot,
+  .pin::before {
+    animation: none;
+  }
+}
