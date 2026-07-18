@@ -5,40 +5,85 @@
    the JARVIS/DeathLeade case studies) rather than a cropped hover-thumb,
    since a small preview does these screenshots no favors.
    ========================================================================== */
-.gallery { padding: var(--space-2xl) 0; border-top: 1px solid var(--line); }
-.gallery__header { margin-bottom: var(--space-lg); }
+.gallery {
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--line);
+}
 
-.gallery__list { border-top: 1px solid var(--line); }
+.gallery__header {
+  margin-bottom: var(--space-lg);
+}
+
+.gallery__intro {
+  color: var(--ink-muted);
+  font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+  max-width: 60ch;
+}
+
+.gallery__list {
+  border-top: 1px solid var(--line);
+}
+
 .gallery__row {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: var(--space-lg);
+  gap: var(--space-md) var(--space-lg);
   padding: var(--space-lg) 0;
   border-bottom: 1px solid var(--line);
 }
-.gallery__row-number { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-faint); flex-shrink: 0; }
-.gallery__row-body { flex: 1; min-width: 0; width: 100%; }
+
+.gallery__row-number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+.gallery__row-body {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
 .gallery__row-title {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size: clamp(1.2rem, 2.6vw, 1.9rem);
   color: var(--ink);
   margin-bottom: 0.3em;
   transition: color var(--dur-med) var(--ease-out);
 }
+
 .gallery__row:hover .gallery__row-title,
-.gallery__row:focus-within .gallery__row-title { color: var(--ink-muted); }
-.gallery__row-text { color: var(--ink-muted); font-size: 0.95rem; max-width: 60ch; margin-bottom: 0.5em; }
-.gallery__row-stack { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint); }
+.gallery__row:focus-within .gallery__row-title {
+  color: var(--ink-muted);
+}
+
+.gallery__row-text {
+  color: var(--ink-muted);
+  font-size: clamp(0.88rem, 1.3vw, 0.95rem);
+  max-width: 60ch;
+  margin-bottom: 0.5em;
+}
+
+.gallery__row-stack {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.2vw, 0.78rem);
+  color: var(--ink-faint);
+}
 
 .gallery__row-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--accent, var(--ink));
   margin-top: 0.6em;
   border-bottom: 1px solid currentColor;
+  /* Touch-friendly */
+  min-height: 44px;
+  padding: 0.3em 0;
 }
 
 /* Every row's stage sits full-width below the text, spaced consistently. */
@@ -47,4 +92,3 @@
   margin-top: var(--space-md);
   margin-bottom: 0;
 }
-

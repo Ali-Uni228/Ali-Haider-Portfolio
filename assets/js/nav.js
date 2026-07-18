@@ -3,7 +3,8 @@
   var hamburger = document.querySelector('.nav__hamburger');
   var links = document.querySelector('.nav__links');
   if (hamburger && links) {
-    hamburger.addEventListener('click', function () {
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
       var open = links.classList.toggle('nav__links--open');
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
@@ -12,6 +13,17 @@
         links.classList.remove('nav__links--open');
         hamburger.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!links.classList.contains('nav__links--open')) return;
+      var rect = links.getBoundingClientRect();
+      var isBackdropClick = e.clientX < rect.left;
+      var isOutside = !links.contains(e.target) && !hamburger.contains(e.target);
+      if (isBackdropClick || isOutside) {
+        links.classList.remove('nav__links--open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 

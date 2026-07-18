@@ -6,32 +6,42 @@
    ========================================================================== */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
+
 .nav__inner {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: var(--space-md) clamp(1.5rem, 5vw, 5rem);
+  padding: var(--space-md) var(--page-gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .nav__logo {
   font-family: var(--font-mono);
   font-size: 0.9rem;
   color: var(--ink);
+  flex-shrink: 0;
 }
+
 .nav__links {
   display: flex;
   gap: var(--space-lg);
 }
+
 .nav__link {
   font-size: 0.85rem;
   color: var(--ink-muted);
   transition: color var(--dur-med) var(--ease-out);
 }
-.nav__link:hover { color: var(--ink); }
+
+.nav__link:hover {
+  color: var(--ink);
+}
 
 .nav__resume {
   font-family: var(--font-body);
@@ -42,22 +52,51 @@
   padding: 0.6em 1.2em;
   border-radius: 5px;
   transition: background var(--dur-med) var(--ease-out);
+  flex-shrink: 0;
 }
-.nav__resume:hover { background: #fff; }
+
+.nav__resume:hover {
+  background: #fff;
+}
 
 .nav__hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   padding: 0.5rem;
+  /* Touch-friendly tap target */
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
-.nav__hamburger span { width: 20px; height: 1.5px; background: var(--ink); }
 
-@media (max-width: 760px) {
+.nav__hamburger span {
+  width: 20px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 300ms var(--ease-out), opacity 200ms;
+}
+
+/* Hamburger X animation when open */
+.nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
   .nav__links {
     position: fixed;
-    top: 0; right: 0;
-    height: 100vh;
+    top: 0;
+    right: 0;
+    height: 100dvh;
     width: min(75vw, 300px);
     background: var(--surface);
     flex-direction: column;
@@ -67,7 +106,55 @@
     padding: var(--space-lg);
     transform: translateX(100%);
     transition: transform var(--dur-med) var(--ease-out);
+    z-index: 200;
   }
-  .nav__links--open { transform: translateX(0); }
-  .nav__hamburger { display: flex; }
+
+  .nav__links--open {
+    transform: translateX(0);
+  }
+
+  .nav__hamburger {
+    display: flex;
+    z-index: 210;
+  }
+
+  /* Nav links in drawer should be touch-friendly size */
+  .nav__link {
+    font-size: 1rem;
+    padding: 0.5em 0;
+    /* Make them easier to tap */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Hide Resume button in header when mobile nav is used — it appears inside the drawer */
+  .nav__resume {
+    display: none;
+  }
+}
+
+/* Overlay behind open mobile nav */
+.nav__links--open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Mobile-only resume link: hidden on desktop, visible only inside the drawer */
+.nav__link--resume-mobile {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .nav__link--resume-mobile {
+    display: flex;
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    font-weight: 500;
+  }
 }

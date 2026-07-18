@@ -36,17 +36,17 @@
 .case-study__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(1.8rem, 5vw, 3.8rem);
   line-height: 1.05;
   margin-bottom: 0.2em;
 }
 
 .case-study__title--section {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
 }
 
 .case-study__subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.92rem, 1.5vw, 1.2rem);
   color: var(--ink-muted);
   margin-bottom: var(--space-md);
 }
@@ -61,7 +61,8 @@
 }
 
 .case-study__stage .frame {
-  min-height: 380px;
+  /* Fluid min-height that adapts to screen size instead of rigid 380px */
+  min-height: clamp(180px, 35vw, 380px);
 }
 
 .case-study__frame-bg {
@@ -74,7 +75,7 @@
 
 .case-study__caption {
   font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(0.95rem, 2vw, 1.5rem);
   color: var(--ink);
   margin-top: var(--space-md);
   max-width: 520px;
@@ -187,11 +188,16 @@
 /* ---- Architecture diagram ---- */
 .case-study__diagram {
   margin-bottom: var(--space-xl);
+  /* Allow horizontal scrolling only on very small screens as last resort */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .arch-diagram {
   width: 100%;
   height: auto;
+  /* Ensure minimum readability on very small screens */
+  min-width: 320px;
 }
 
 .arch-diagram text {
@@ -247,7 +253,7 @@
 
 .case-study__status-line {
   color: var(--ink-muted);
-  font-size: 0.92rem;
+  font-size: clamp(0.85rem, 1.4vw, 0.92rem);
   max-width: 48ch;
 }
 
@@ -263,6 +269,11 @@
   color: var(--accent, var(--ink-faint));
   margin-top: var(--space-md);
   border-bottom: 1px solid currentColor;
+  /* Touch-friendly */
+  padding: 0.3em 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* ---- Custom structured grid layout for Flagship Projects ---- */
@@ -282,7 +293,7 @@
 
 .case-study__section h4 {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: clamp(0.78rem, 1.3vw, 0.85rem);
   color: var(--ink);
   margin-bottom: 0.5em;
   text-transform: uppercase;
@@ -291,7 +302,7 @@
 
 .case-study__section p {
   color: var(--ink-muted);
-  font-size: 0.98rem;
+  font-size: clamp(0.9rem, 1.3vw, 0.98rem);
   line-height: 1.7;
 }
 
@@ -299,5 +310,13 @@
   .case-study__grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+  }
+}
+
+/* On very small phones, stack meta row vertically */
+@media (max-width: 480px) {
+  .case-study__meta-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

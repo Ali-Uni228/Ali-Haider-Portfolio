@@ -7,6 +7,7 @@
   padding: var(--space-lg) 0;
   border-top: 1px solid var(--line);
 }
+
 .footer__inner {
   display: flex;
   justify-content: space-between;
@@ -14,4 +15,19 @@
   flex-wrap: wrap;
   gap: var(--space-sm);
 }
-.footer__note { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faint); }
+
+.footer__note {
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+  color: var(--ink-faint);
+}
+
+/* On small screens, stack footer vertically and center */
+@media (max-width: 600px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-xs);
+  }
+}

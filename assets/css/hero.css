@@ -12,7 +12,7 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: calc(var(--space-2xl) + 2rem) clamp(1.5rem, 5vw, 5rem) var(--space-2xl);
+  padding: calc(var(--space-2xl) + 2rem) var(--page-gutter) var(--space-2xl);
   overflow: hidden;
 }
 
@@ -44,7 +44,7 @@
   align-items: center;
   gap: 0.6em;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: clamp(0.68rem, 1.5vw, 0.78rem);
   letter-spacing: 0.04em;
   color: var(--ink-muted);
   margin-bottom: var(--space-lg);
@@ -73,7 +73,7 @@
 .hero__name {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(3.2rem, 9vw, 7.2rem);
+  font-size: clamp(2.8rem, 8vw, 7.2rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -82,7 +82,7 @@
 
 .hero__sub {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: clamp(0.72rem, 1.5vw, 0.85rem);
   letter-spacing: 0.04em;
   color: var(--ink-muted);
   margin-bottom: var(--space-md);
@@ -90,7 +90,7 @@
 
 .hero__statement {
   max-width: 620px;
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-size: clamp(0.98rem, 1.6vw, 1.3rem);
   color: var(--ink-muted);
   margin-bottom: var(--space-lg);
 }
@@ -139,20 +139,23 @@
   display: flex;
   align-items: center;
   gap: var(--space-lg);
+  flex-wrap: wrap;
 }
 
 .hero__action {
   display: inline-flex;
   align-items: center;
   gap: 0.45em;
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 1.4vw, 0.95rem);
   color: var(--ink);
-  padding-bottom: 2px;
+  padding: 0.5em 0;
   background-image: linear-gradient(var(--ink), var(--ink));
   background-repeat: no-repeat;
   background-size: 0% 1px;
   background-position: left bottom;
   transition: background-size var(--dur-med) var(--ease-out), gap var(--dur-med) var(--ease-out);
+  /* Touch-friendly minimum size */
+  min-height: 44px;
 }
 
 .hero__action:hover {
@@ -163,7 +166,7 @@
 .hero__scroll {
   position: absolute;
   bottom: var(--space-lg);
-  left: clamp(1.5rem, 5vw, 5rem);
+  left: var(--page-gutter);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.12em;

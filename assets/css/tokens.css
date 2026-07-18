@@ -24,22 +24,28 @@
   --deathleade: #34C98E;
 
   /* ---- Type ---- */
-  --font-display: 'Fraunces', serif;   /* large sizes only: name, chapter titles */
-  --font-body: 'Inter', sans-serif;     /* paragraphs, nothing else */
-  --font-mono: 'JetBrains Mono', monospace; /* labels, status, numerals only */
+  --font-display: 'Fraunces', serif;
+  /* large sizes only: name, chapter titles */
+  --font-body: 'Inter', sans-serif;
+  /* paragraphs, nothing else */
+  --font-mono: 'JetBrains Mono', monospace;
+  /* labels, status, numerals only */
 
-  /* ---- Space ---- */
+  /* ---- Space — fluid where it matters ---- */
   --space-2xs: 0.5rem;
   --space-xs: 0.75rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
-  --space-lg: 2.5rem;
-  --space-xl: 4rem;
-  --space-2xl: 6rem;
+  --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+  --space-xl: clamp(2.5rem, 5vw, 4rem);
+  --space-2xl: clamp(3.5rem, 7vw, 6rem);
 
   /* ---- Containers ---- */
   --container-wide: 1600px;
   --container-read: 720px;
+
+  /* ---- Fluid page gutter — used by all containers and edge-aligned elements ---- */
+  --page-gutter: clamp(1rem, 4vw, 5rem);
 
   /* ---- Motion: only what Hero currently uses ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -47,11 +53,14 @@
 
   /* ---- Motion: added now that JARVIS/DeathLeade/Contact actually use them ----
      (deferred until this point on purpose — see build notes) */
-  --ease-cinematic: cubic-bezier(0.6, 0.04, 0.05, 0.96); /* mask reveals */
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);       /* magnetic snap-back */
+  --ease-cinematic: cubic-bezier(0.6, 0.04, 0.05, 0.96);
+  /* mask reveals */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* magnetic snap-back */
   --dur-slow: 800ms;
   --dur-cinematic: 1100ms;
-  --tilt-max: 6deg; /* used by [data-tilt] on JARVIS/DeathLeade screenshot frames only */
+  --tilt-max: 6deg;
+  /* used by [data-tilt] on JARVIS/DeathLeade screenshot frames only */
 }
 
 @media (prefers-reduced-motion: reduce) {

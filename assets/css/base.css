@@ -18,7 +18,7 @@ body {
   background: var(--canvas);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: clamp(15px, 1vw, 16px);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -63,13 +63,13 @@ button {
 .container--wide {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  padding: 0 var(--page-gutter);
 }
 
 .container--read {
   max-width: var(--container-read);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--page-gutter);
 }
 
 /* ---- Frame — the honest screenshot/placeholder slot ----
@@ -117,6 +117,13 @@ button {
   background: var(--canvas);
 }
 
+/* On very small screens, use a taller ratio to give screenshots more height */
+@media (max-width: 480px) {
+  .frame--shot {
+    aspect-ratio: 16 / 10;
+  }
+}
+
 /* ---- Screenshot switcher — real <img>s stacked and crossfaded ----
    Used inside .frame--shot both on the JARVIS/DeathLeade stage and inside
    gallery preview panels. One set of rules, three call sites. */
@@ -127,7 +134,7 @@ button {
   background: var(--canvas);
   transform: translateY(12px);
   transition: opacity var(--dur-med) var(--ease-out),
-              transform var(--dur-med) var(--ease-out);
+    transform var(--dur-med) var(--ease-out);
   pointer-events: none;
 }
 
@@ -142,13 +149,14 @@ button {
     transition: none;
   }
 }
+
 /* JARVIS screenshot transition — sophisticated simplicity, functional motion */
 .case-study--jarvis .switcher__slide {
   transform: translateY(40px);
   filter: blur(15px);
   transition: opacity 320ms var(--ease-out),
-              transform 320ms var(--ease-out),
-              filter 320ms var(--ease-out);
+    transform 320ms var(--ease-out),
+    filter 320ms var(--ease-out);
 }
 
 .case-study--jarvis .switcher__slide.is-active {
@@ -162,17 +170,21 @@ button {
 .switcher__tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6em;
+  gap: 0.5em;
 }
 
 .switcher__tab {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: clamp(0.68rem, 1.5vw, 0.8rem);
   color: var(--ink-muted);
-  padding: 0.5em 0.9em;
+  padding: 0.45em 0.7em;
   border: 1px solid var(--line);
   border-radius: 4px;
   transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
+  /* Ensure touch-friendly minimum size */
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .switcher__tab::before {
@@ -190,6 +202,15 @@ button {
   border-color: var(--accent, var(--ink-faint));
 }
 
+/* On very narrow screens, hide decorative brackets to save horizontal space */
+@media (max-width: 380px) {
+
+  .switcher__tab::before,
+  .switcher__tab::after {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    SHARED COMPONENTS
    Everything below is used in at least two sections — that's the bar for
@@ -202,7 +223,7 @@ button {
   align-items: center;
   gap: 0.6em;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: clamp(0.7rem, 1.5vw, 0.78rem);
   color: var(--ink-muted);
 }
 
@@ -237,7 +258,7 @@ button {
 /* ---- Section eyebrow — case studies, gallery, stack, focus ---- */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: clamp(0.68rem, 1.2vw, 0.75rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -248,9 +269,9 @@ button {
 .stack-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 0.6em;
+  gap: 0.4em 0.6em;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   color: var(--ink-muted);
 }
 
@@ -364,6 +385,9 @@ html.js-ready [data-reveal].is-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Increase touch target for mobile — visual size stays the same */
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .pin::before {
@@ -386,7 +410,7 @@ html.js-ready [data-reveal].is-visible {
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   width: max-content;
-  max-width: 240px;
+  max-width: min(240px, 70vw);
   background: var(--canvas);
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -398,6 +422,20 @@ html.js-ready [data-reveal].is-visible {
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+  z-index: 10;
+}
+
+/* Prevent callouts from going off-screen on small viewports */
+@media (max-width: 480px) {
+  .pin__callout {
+    left: 0;
+    transform: translateX(0) translateY(6px);
+  }
+
+  .pin.is-active .pin__callout,
+  .pin:focus-visible .pin__callout {
+    transform: translateX(0) translateY(0);
+  }
 }
 
 .pin.is-active .pin__callout,

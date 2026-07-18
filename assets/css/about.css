@@ -4,12 +4,15 @@
    one large pull-quote, then flowing prose. No stat cards, no icon list —
    stillness is the actual design decision here.
    ========================================================================== */
-.about { padding: var(--space-2xl) 0; border-top: 1px solid var(--line); }
+.about {
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--line);
+}
 
 .about__quote {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-size: clamp(1.4rem, 3.4vw, 2.4rem);
   line-height: 1.25;
   color: var(--ink);
   margin-bottom: var(--space-xl);
@@ -18,8 +21,15 @@
 
 .about__body p {
   color: var(--ink-muted);
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
   line-height: 1.85;
 }
-.about__body p + p { margin-top: 1.4em; }
-.about__body em { color: var(--ink); font-style: normal; }
+
+.about__body p+p {
+  margin-top: 1.4em;
+}
+
+.about__body em {
+  color: var(--ink);
+  font-style: normal;
+}
