@@ -2,6 +2,7 @@ import "./globals.css";
 import RefreshRedirect from '@/components/RefreshRedirect'
 
 export const metadata = {
+  metadataBase: new URL("https://ali-haider-portfolio-livid.vercel.app"),
   title: "Ali Haider — Software Engineering & AI Portfolio",
   description:
     "Ali Haider — BS Artificial Intelligence student and software engineer. Builder of JARVIS, a local AI operating system, and DeathLeade Network, a full-stack Minecraft storefront. Looking for software engineering internships.",
