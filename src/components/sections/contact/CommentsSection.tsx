@@ -230,6 +230,21 @@ export default function CommentsSection() {
                         className="mt-3 rounded-xl w-full max-h-48 md:max-h-56 object-cover border border-white/10"
                       />
                     )}
+
+                    {Array.isArray(item.replies) && item.replies.length > 0 && (
+                      <div className="mt-3 space-y-2 border-l-2 border-purple-500/30 pl-3">
+                        {item.replies.map((reply: any, ri: number) => (
+                          <div key={ri}>
+                            <p className="text-[11px] font-medium text-purple-300">
+                              {reply.username}
+                            </p>
+                            <p className="text-[12px] text-white/60">
+                              {reply.message}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   <button
