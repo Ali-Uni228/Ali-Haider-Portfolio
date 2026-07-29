@@ -1,5 +1,5 @@
 'use client'
-
+import { Project, Certificate, TechStackItem } from '@/types'
 import { useEffect, useState } from 'react'
 import {
   fetchCertificates,
@@ -8,11 +8,9 @@ import {
 } from '@/lib/portfolioService'
 
 export default function usePortfolio() {
-  const [projects, setProjects] = useState<any[]>([])
-  const [certificates, setCertificates] =
-    useState<any[]>([])
-  const [techStacks, setTechStacks] =
-    useState<any[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
+  const [certificates, setCertificates] = useState<Certificate[]>([])
+  const [techStacks, setTechStacks] = useState<TechStackItem[]>([])
 
   const [loading, setLoading] = useState(true)
 

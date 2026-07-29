@@ -24,7 +24,7 @@ export default function Home() {
     const currentHash = window.location.hash
     const pathname = window.location.pathname
 
-    // kalau balik dari detail ke portfolio
+    // returning from detail page back to portfolio
     if (currentHash === '#portfolio') {
       setShowWelcome(false)
       setShowApp(true)
@@ -71,6 +71,12 @@ export default function Home() {
     }
   }, [])
 
+  const handleSkipIntro = () => {
+    setShowWelcome(false)
+    setShowApp(true)
+    setIntroPlayed()
+  }
+
   return (
     <main style={{ position: 'relative', overflow: 'hidden' }}>
       <AnimatedBackground />
@@ -107,7 +113,7 @@ export default function Home() {
               zIndex: 9999,
             }}
           >
-            <WelcomeScreen />
+            <WelcomeScreen onSkip={handleSkipIntro} />
           </motion.div>
         )}
       </AnimatePresence>

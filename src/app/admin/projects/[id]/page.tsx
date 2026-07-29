@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/lib/supabase";
 import Swal from "sweetalert2";
+import { Project } from '@/types'
 
 import {
   Code2,
@@ -22,9 +23,14 @@ export default function ProjectDetailPage() {
   const { id } = useParams();
   const router = useRouter();
 
-  const [project, setProject] = useState<any>(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [editMode, setEditMode] = useState(false);
-  const [form, setForm] = useState<any>({});
+  const [form, setForm] = useState<
+    Partial<Omit<Project, "technologies" | "key_features">> & {
+      technologies?: string;
+      key_features?: string;
+    }
+  >({});
   const [currentImage, setCurrentImage] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
 
@@ -98,13 +104,27 @@ export default function ProjectDetailPage() {
 };
 
   const handleUpdate = async () => {
+  const techArray = typeof form.technologies === "string"
+    ? form.technologies.split(",").map((t) => t.trim()).filter(Boolean)
+    : form.technologies || [];
+
+  const featuresArray = typeof form.key_features === "string"
+    ? form.key_features.split(",").map((f) => f.trim()).filter(Boolean)
+    : form.key_features || [];
+
+  const payload = {
+    ...form,
+    technologies: techArray,
+    key_features: featuresArray,
+  };
+
   const { error } = await supabase
     .from("projects")
-    .update(form)
+    .update(payload)
     .eq("id", id);
 
   if (!error) {
-    setProject(form);
+    setProject(payload as Project);
     setEditMode(false);
 
     Swal.fire({

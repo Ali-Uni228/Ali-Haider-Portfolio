@@ -13,6 +13,7 @@ import {
   RefreshCcw,
   TrendingUp,
 } from "lucide-react";
+import { Comment } from '@/types'
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function DashboardPage() {
     pinned: 0,
   });
 
-  const [recentComments, setRecentComments] = useState<any[]>([]);
+  const [recentComments, setRecentComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

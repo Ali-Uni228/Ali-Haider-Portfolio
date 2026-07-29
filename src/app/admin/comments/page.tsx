@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Sidebar from "@/app/admin/Sidebar";
 import { supabase } from "@/lib/supabase";
 import Swal from "sweetalert2";
+import { Comment } from '@/types'
+
 import {
   Trash2,
   Pin,
@@ -14,7 +16,7 @@ import {
 } from "lucide-react";
 
 export default function AdminCommentsPage() {
-  const [comments, setComments] = useState<any[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
   const [replyText, setReplyText] = useState<Record<number, string>>({});
 
@@ -225,7 +227,7 @@ export default function AdminCommentsPage() {
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <p className="font-medium text-[14px] break-all">
-                            {comment.name || comment.username}
+                            {comment.name || "Anonymous"}
                           </p>
 
                           {comment.is_pinned && (

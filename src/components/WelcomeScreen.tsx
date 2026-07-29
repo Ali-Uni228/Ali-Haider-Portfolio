@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Code2, User, Globe } from 'lucide-react'
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ onSkip }: { onSkip: () => void }) {
   const icons = [Code2, User, Globe]
 
   return (
@@ -202,6 +202,28 @@ export default function WelcomeScreen() {
   Ali Haider &middot; BS AI, Air University
 </motion.div>
       </motion.div>
+
+      <motion.button
+        type="button"
+        onClick={onSkip}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        style={{
+          position: 'absolute',
+          bottom: 28,
+          right: 28,
+          background: 'transparent',
+          border: '1px solid rgba(255,255,255,0.2)',
+          color: 'rgba(255,255,255,0.6)',
+          borderRadius: 999,
+          padding: '8px 18px',
+          fontSize: 12,
+          cursor: 'pointer',
+        }}
+      >
+        Skip →
+      </motion.button>
     </div>
   )
 }

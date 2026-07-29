@@ -6,12 +6,13 @@ import Sidebar from "@/app/admin/Sidebar";
 import { Plus } from "lucide-react";
 import AddProjectModal from "./AddProjectModal";
 import { supabase } from "@/lib/supabase";
+import { Project } from '@/types'
 
 export default function ProjectsPage() {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 'use client'
-
+import { Comment } from '@/types'
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import {
@@ -10,7 +10,7 @@ import {
 } from '@/lib/commentService'
 
 export default function useComments() {
-  const [comments, setComments] = useState<any[]>([])
+  const [comments, setComments] = useState<Comment[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

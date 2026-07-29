@@ -5,9 +5,10 @@ import Sidebar from "@/app/admin/Sidebar";
 import { supabase } from "@/lib/supabase";
 import { Plus, Trash2, Pencil, X, Upload } from "lucide-react";
 import Swal from "sweetalert2";
+import { TechStackItem } from '@/types'
 
 export default function TechStackPage() {
-  const [techStacks, setTechStacks] = useState<any[]>([]);
+  const [techStacks, setTechStacks] = useState<TechStackItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [open, setOpen] = useState(false);
