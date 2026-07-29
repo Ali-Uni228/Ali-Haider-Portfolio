@@ -5,6 +5,7 @@ import { motion, Variants } from "framer-motion";
 import { Code, Award, Globe, FileText, ArrowUpRight } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { PROJECT_COUNT } from "@/components/sections/PortfolioShowcase";
+import Image from "next/image";
 
 /* ================== ANIMATION ================== */
 
@@ -350,12 +351,12 @@ export default function About() {
                 transform: isMobile ? "none" : "translateX(-80px)",
               }}
             >
-              <img
+              <Image
                 src="/assets/ali/portrait.png"
                 alt="Portrait of Ali Haider"
+                width={isMobile ? 160 : 240}
+                height={isMobile ? 160 : 240}
                 style={{
-                  width: isMobile ? 160 : 240,
-                  height: isMobile ? 160 : 240,
                   borderRadius: "50%",
                   objectFit: "cover",
                   display: "block",

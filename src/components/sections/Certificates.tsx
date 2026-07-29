@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
+import Image from "next/image";
 
 const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -109,10 +110,13 @@ export default function Certificates() {
               }}
               className="group cursor-pointer rounded-[26px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
             >
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-56">
-                <img
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 h-56">
+                <Image
                   src={item.image_url}
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition duration-500"
                 />
               </div>
               <h3 className="mt-4 text-[15px] font-semibold text-center text-white/90">

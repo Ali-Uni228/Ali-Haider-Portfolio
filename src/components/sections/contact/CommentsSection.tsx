@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { Upload, Heart, Pin } from 'lucide-react'
 import useComments from '@/hooks/useComments'
+import Image from "next/image";
 
 const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -224,10 +225,12 @@ export default function CommentsSection() {
                     </p>
 
                     {item.image_url && (
-                      <img
+                      <Image
                         src={item.image_url}
                         alt="Comment"
-                        className="mt-3 rounded-xl w-full max-h-48 md:max-h-56 object-cover border border-white/10"
+                        width={800}
+                        height={400}
+                        className="mt-3 rounded-xl w-full h-auto max-h-48 md:max-h-56 object-cover border border-white/10"
                       />
                     )}
 

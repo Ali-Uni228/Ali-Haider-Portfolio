@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowUpRight } from 'lucide-react'
+import Image from "next/image";
 
 type Slide = { key: string; label: string; src: string; alt: string }
 
@@ -36,11 +37,13 @@ function MarqueeTile({ project, onClick }: { project: ProjectLite; onClick: () =
         cursor: 'pointer',
       }}
     >
-      <div style={{ height: 140, overflow: 'hidden' }}>
-        <img
+      <div style={{ height: 140, overflow: 'hidden', position: 'relative' }}>
+        <Image
           src={project.slides[0]?.src}
           alt={project.slides[0]?.alt}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          fill
+          sizes="260px"
+          style={{ objectFit: 'cover' }}
         />
       </div>
       <div style={{ padding: 14 }}>
@@ -210,10 +213,12 @@ export default function ProjectMarquee({ projects }: { projects: ProjectLite[] }
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <img
+                <Image
                   src={active.slides[0]?.src}
                   alt={active.slides[0]?.alt}
-                  style={{ width: '100%', display: 'block' }}
+                  width={1200}
+                  height={750}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
               </div>
 

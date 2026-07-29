@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp, X } from 'lucide-react'
 import ProjectMarquee from './ProjectMarquee'
+import Image from "next/image";
 
 const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -372,10 +373,12 @@ function Switcher({ slides, color }: { slides: Slide[]; color: string }) {
           background: 'rgba(255,255,255,0.02)',
         }}
       >
-        <img
+        <Image
           src={slides[active].src}
           alt={slides[active].alt}
-          style={{ width: '100%', display: 'block' }}
+          width={1200}
+          height={750}
+          style={{ width: '100%', height: 'auto', display: 'block' }}
         />
         {slides[active].pins?.map((p, i) => (
           <Pin key={i} top={p.top} left={p.left} color={color} text={p.text} />
