@@ -16,16 +16,13 @@ export const likeCommentService = async (
   id: number,
   currentLikes: number
 ) => {
-  const newLikes = (currentLikes || 0) + 1
-
-  const { error } = await supabase
-    .from('comments')
-    .update({ likes: newLikes })
-    .eq('id', id)
+  const { data, error } = await supabase.rpc('increment_comment_like', {
+    comment_id: id,
+  })
 
   if (error) throw error
 
-  return newLikes
+  return data
 }
 
 export const uploadCommentImageService = async (
